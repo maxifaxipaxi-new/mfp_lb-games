@@ -1,6 +1,7 @@
 # Games App for LB-Phone & LB-Tablet
 
 ![arcade-games](https://github.com/user-attachments/assets/f7caf664-b983-4190-b3e9-8b03314bc1dd)
+![mfp_tablet_games](https://github.com/user-attachments/assets/6fb0a379-6e74-4a6a-b2b7-d3fc8a7e5303)
 
 
 Game out all our created games in just one app.
