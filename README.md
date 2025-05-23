@@ -1,4 +1,4 @@
-# Games App for LB-Phone
+# Games App for LB-Phone & LB-Tablet
 
 ![arcade-games](https://github.com/user-attachments/assets/f7caf664-b983-4190-b3e9-8b03314bc1dd)
 
