@@ -20,3 +20,10 @@ App-Icon:
 #### More Scripts: https://mfpscripts.com
 #### Support: https://discord.mfpscripts.com
 #### Contact: contact@mfpscripts.com
+
+## Versions
+v1.0.0
+- Release
+
+v1.1.0
+- added Tablet Version
