@@ -7,7 +7,7 @@ use_experimental_fxv2_oal "yes"
 name "MFP LB-Tablet-Game App"
 author 'MFPSCRIPTS'
 description 'LB Tablet Game App'
-version '1.0.0'
+version '1.1.1'
 
 files {
     "html/*.*",
