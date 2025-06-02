@@ -29,7 +29,7 @@ Games = {
     },
     {
         title = "CLASSIC Teetris",
-        description = "Classic Snake game.",
+        description = "Classic Teetris game.",
         gameUrl = "games/teetris/index.html",
         icon = "games/teetris/icon.png",
         banner = "games/teetris/banner.jpg"
