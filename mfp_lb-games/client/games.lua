@@ -1,3 +1,12 @@
+---@class GameData
+---@field title string
+---@field description string
+---@field gameUrl string file path from the games/ directory (including games/)
+---@field icon string file path for the game icon
+---@field banner string unused at this time, only referenced
+---@field size? number simulated size of the app for the phone
+---@field images? string[] array of file paths for app pictures, used in app store
+
 Games = {
     {
         title = "1024",
@@ -25,7 +34,7 @@ Games = {
         description = "Classic Snake game.",
         gameUrl = "games/snake/index.html",
         icon = "games/snake/snake.png",
-        banner = "games/snake/banner.webp"
+        banner = "games/snake/banner.webp",
     },
     {
         title = "CLASSIC Teetris",
@@ -48,4 +57,4 @@ Games = {
         icon = "games/flappybird/assets/icon.png",
         banner = "games/flappybird/assets/banner.webp"
     }
-}
+} --[[ @as GameData[] ]]
