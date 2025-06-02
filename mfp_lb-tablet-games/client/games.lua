@@ -1,12 +1,3 @@
----@class GameData
----@field title string
----@field description string
----@field gameUrl string file path from the games/ directory (including games/)
----@field icon string file path for the game icon
----@field banner string unused at this time, only referenced
----@field size? number simulated size of the app for the phone
----@field images? string[] array of file paths for app pictures, used in app store
-
 Games = {
     {
         title = "1024",
