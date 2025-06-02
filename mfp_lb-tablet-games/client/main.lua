@@ -1,33 +1,41 @@
-local identifier = "mfp_lb-tablet_games"
+local function formatIdentifier(title)
+    local formatted = title:lower()
+    formatted = formatted:gsub("[^a-z0-9 ]", "-")
+    return ("mfp-tablet-games-%s"):format(title)
+end
 
-CreateThread(function ()
-    while GetResourceState("lb-tablet") ~= "started" do
-        Wait(500)
-    end
-
-    local function AddApp()
+local function AddApps()
+    for i = 1, #Games do
+        local game = Games[i]
         local added, errorMessage = exports["lb-tablet"]:AddCustomApp({
-            identifier = identifier,
-            name = Config.AppName,
-            description = Config.Description,
+            identifier = formatIdentifier(game.title),
+            name = game.title,
+            description = game.description,
             developer = "MFPSCRIPTS.com",
             defaultApp = Config.DefaultApp,
-            size = Config.Size,
-            images = Config.Images,
-            ui = "html/index.html", -- ✅ Wichtig!
-            icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/assets/app.jpg" -- ✅ Richtig aufbauen
+            size = game.size or Config.Size,
+            images = game.images or {},
+            ui = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/" .. game.gameUrl,
+            icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/" .. game.icon,
+            fixBlur = true
         })
 
         if not added then
             print("Could not add app:", errorMessage)
         end
     end
+end
 
-    AddApp()
+CreateThread(function ()
+    while GetResourceState("lb-tablet") ~= "started" do
+        Wait(500)
+    end
+
+    AddApps()
 
     AddEventHandler("onResourceStart", function(resource)
         if resource == "lb-tablet" then
-            AddApp()
+            AddApps()
         end
     end)
 end)
