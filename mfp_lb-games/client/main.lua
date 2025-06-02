@@ -14,7 +14,7 @@ local function AddApps()
             developer = "MFPSCRIPTS.com",
             defaultApp = Config.DefaultApp,
             size = game.size or Config.Size,
-            images = game.size or {},
+            images = game.images or {},
             ui = GetCurrentResourceName() .. "/html/" .. game.gameUrl,
             icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/" .. game.icon,
             fixBlur = true
