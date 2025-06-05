@@ -1,33 +1,43 @@
-local identifier = "mfp_lb-games"
+local function formatIdentifier(title)
+    local formatted = title:lower()
+    formatted = formatted:gsub("[^a-z0-9 ]", "-")
+    return ("mfp-games-%s"):format(title)
+end
+
+local function AddApps()
+    for i = 1, #Games do
+        local game = Games[i]
+        local added, errorMessage = exports["lb-phone"]:AddCustomApp({
+            identifier = formatIdentifier(game.title),
+            name = game.title,
+            description = game.description,
+            developer = "MFPSCRIPTS.com",
+            defaultApp = Config.DefaultApp,
+            size = game.size or Config.Size,
+            images = game.images or {},
+            ui = GetCurrentResourceName() .. "/html/" .. game.gameUrl,
+            icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/" .. game.icon,
+            fixBlur = true
+        })
+
+        if not added then
+            print("Could not add app:", errorMessage)
+        end
+
+        print('Added', game.title)
+    end
+end
 
 CreateThread(function ()
     while GetResourceState("lb-phone") ~= "started" do
         Wait(500)
     end
 
-    local function AddApp()
-        local added, errorMessage = exports["lb-phone"]:AddCustomApp({
-            identifier = identifier,
-            name = Config.AppName,
-            description = Config.Description,
-            developer = "MFPSCRIPTS.com",
-            defaultApp = Config.DefaultApp,
-            size = Config.Size,
-            images = Config.Images,
-            ui = GetCurrentResourceName() .. "/html/index.html",
-            icon = "https://cfx-nui-" .. GetCurrentResourceName() .. "/html/assets/app.jpg"
-        })
-
-        if not added then
-            print("Could not add app:", errorMessage)
-        end
-    end
-
-    AddApp()
+    AddApps()
 
     AddEventHandler("onResourceStart", function(resource)
         if resource == "lb-phone" then
-            AddApp()
+            AddApps()
         end
     end)
 end)
