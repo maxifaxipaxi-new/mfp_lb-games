@@ -27,3 +27,9 @@ v1.0.0
 
 v1.1.0
 - added Tablet Version
+
+v1.1.1
+- Bug fixes with wrong labels
+
+v1.2.0
+- restructured code for seperated apps in app store. Special thanks to @Maximus7474!
