@@ -5,4 +5,5 @@
 ---@field icon string file path for the game icon
 ---@field banner string unused at this time, only referenced
 ---@field size? number simulated size of the app for the phone
+---@field defaultapp? boolean specify if the app it pre-installed on every phone
 ---@field images? string[] array of file paths for app pictures, used in app store
